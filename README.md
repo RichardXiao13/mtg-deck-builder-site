@@ -1,8 +1,13 @@
 # MTG Deck Builder Website
+
 ---
+
 ### CURRENTLY IN PROGRESS
+
 ---
+
 ## TODO
+
 - Create decklist from added cards
 
 - Create advanced search with card type, mana colors, card set using MTG API

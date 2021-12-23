@@ -1,6 +1,7 @@
 /* eslint-disable require-jsdoc */
 import React from "react";
 import PropTypes from "prop-types";
+import "./test.css";
 
 class CardView extends React.Component {
   constructor(props) {
@@ -15,21 +16,12 @@ class CardView extends React.Component {
 
   render() {
     return (
-      <div
-        style={{
-          display: "inline-block",
-          margin: "25px",
-          alignItems: "center",
-        }}
-      >
+      <div className="card-view">
         <img
           src={this.props.card.imageUrl}
-          style={{ height: "370px", width: "265px", padding: "25px" }}
+          style={{ height: "370px", width: "265px", marginBottom: "25px" }}
         />
-        <button
-          style={{ display: "block", margin: "auto" }}
-          onClick={this.handleQuickAdd}
-        >
+        <button className="card-button" onClick={this.handleQuickAdd}>
           Quick Add
         </button>
       </div>

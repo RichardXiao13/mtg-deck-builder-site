@@ -16,14 +16,7 @@ class DeckSideView extends React.Component {
         const cards = this.props.cards[cardName];
         console.log(cards);
         view.push(
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              margin: "0 10px",
-            }}
-            key={cards[0].id}
-          >
+          <div className="deck-card-view" key={cards[0].id}>
             <span>{cards[0].name}</span>
             <span>{cards.length}</span>
           </div>

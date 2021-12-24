@@ -23,7 +23,10 @@ class SearchBar extends React.Component {
   }
 
   async handleSearch() {
-    const cards = await searchCardsWithName(this.state.searchName);
+    const cards = await searchCardsWithName(
+      this.state.searchName,
+      this.state.searchType
+    );
     this.props.updateCards(cards);
   }
 

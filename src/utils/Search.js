@@ -14,8 +14,8 @@ function filterUniqueCards(cards) {
   return filteredCards;
 }
 
-export async function searchCardsWithName(name) {
-  const query = `${url}/cards?name=${name}`;
+export async function searchCardsWithName(name, type) {
+  const query = `${url}/cards?name=${name}&type=${type}`;
   let response = await fetch(query);
   response = await response.json();
   const cards = filterUniqueCards(response.cards);

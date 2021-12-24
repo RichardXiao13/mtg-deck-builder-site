@@ -24,13 +24,20 @@ class CardList extends React.Component {
     return (
       <div
         style={{
-          overflowY: "auto",
-          height: "100%",
-          width: "75%",
-          display: "inline-block",
+          display: "flex",
+          alignItems: "center",
+          flex: "1 1 auto",
+          border: "10px solid black",
+          overflowX: "auto",
         }}
       >
-        {this.props.cards.map(this.renderCard)}
+        <div
+          style={{
+            display: "flex",
+          }}
+        >
+          {this.props.cards.map(this.renderCard)}
+        </div>
       </div>
     );
   }

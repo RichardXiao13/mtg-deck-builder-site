@@ -30,14 +30,25 @@ class DeckSideView extends React.Component {
     return (
       <div
         style={{
-          display: "inline-block",
-          width: "25%",
-          float: "left",
-          height: "100%",
+          border: "10px solid black",
+          flex: "0 0 250px",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        <h3>Deck</h3>
-        {this.renderSideView()}
+        <h3
+          style={{
+            borderBottom: "10px solid black",
+            margin: 0,
+            padding: "10px",
+          }}
+        >
+          Deck
+        </h3>
+
+        <div style={{ overflowY: "auto", height: "100%" }}>
+          {this.renderSideView()}
+        </div>
       </div>
     );
   }

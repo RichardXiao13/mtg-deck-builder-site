@@ -11,6 +11,9 @@
 # production
 /build
 
+# database storage
+/database/decks
+
 # misc
 .DS_Store
 .env.local

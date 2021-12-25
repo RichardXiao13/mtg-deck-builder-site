@@ -7,6 +7,21 @@ class DeckSideView extends React.Component {
     super(props);
 
     this.renderSideView = this.renderSideView.bind(this);
+    this.handleCreateDeck = this.handleCreateDeck.bind(this);
+  }
+
+  async handleCreateDeck() {
+    let response = await fetch("/decks", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({cards: this.props.cards, name: this.props.deckName})
+    });
+    if (response.status === 400) {
+        response = await response.json();
+        console.log(response.message);
+    }
   }
 
   renderSideView() {
@@ -14,7 +29,6 @@ class DeckSideView extends React.Component {
     for (const cardName in this.props.cards) {
       if (Object.prototype.hasOwnProperty.call(this.props.cards, cardName)) {
         const cards = this.props.cards[cardName];
-        console.log(cards);
         view.push(
           <div className="deck-card-view" key={cards[0].id}>
             <span>{cards[0].name}</span>
@@ -46,6 +60,8 @@ class DeckSideView extends React.Component {
           Deck
         </h3>
 
+        <button onClick={this.handleCreateDeck}>Create Deck</button>
+
         <div style={{ overflowY: "auto", height: "100%" }}>
           {this.renderSideView()}
         </div>
@@ -56,6 +72,7 @@ class DeckSideView extends React.Component {
 
 DeckSideView.propTypes = {
   cards: PropTypes.object.isRequired,
+  deckName: PropTypes.string
 };
 
 export default DeckSideView;

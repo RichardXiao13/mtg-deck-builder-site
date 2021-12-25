@@ -15,6 +15,7 @@ class App extends React.Component {
 
     this.updateCards = this.updateCards.bind(this);
     this.addCardToDeck = this.addCardToDeck.bind(this);
+    this.removeCardFromDeck = this.removeCardFromDeck.bind(this);
   }
 
   updateCards(newCards) {
@@ -31,12 +32,24 @@ class App extends React.Component {
     this.setState({ cardsInDeck: deck });
   }
 
+  removeCardFromDeck(cardName) {
+    const deck = this.state.cardsInDeck;
+    deck[cardName].shift();
+    if (deck[cardName].length === 0) {
+      delete deck[cardName];
+    }
+    this.setState({ cardsInDeck: deck });
+  }
+
   render() {
     return (
       <div className="App">
         <SearchBar updateCards={this.updateCards} />
         <div style={{ display: "flex", height: "100%" }}>
-          <DeckSideView cards={this.state.cardsInDeck} />
+          <DeckSideView
+            cards={this.state.cardsInDeck}
+            removeCardFromDeck={this.removeCardFromDeck}
+          />
           <CardList
             cards={this.state.cards}
             addCardToDeck={this.addCardToDeck}

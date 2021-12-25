@@ -43,13 +43,13 @@ class SearchBar extends React.Component {
       <div className="search-bar">
         <input
           placeholder="Name..."
-          onChange={(e) => this.updateSearchName(e)}
+          onChange={this.updateSearchName}
           onKeyUp={this.handleEnter}
           value={this.state.searchName}
         />
         <input
           placeholder="Type..."
-          onChange={(e) => this.updateSearchType(e)}
+          onChange={this.updateSearchType}
           onKeyUp={this.handleEnter}
           value={this.state.searchType}
         />

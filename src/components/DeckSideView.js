@@ -33,7 +33,12 @@ class DeckSideView extends React.Component {
       if (Object.prototype.hasOwnProperty.call(this.props.cards, cardName)) {
         const cards = this.props.cards[cardName];
         view.push(
-          <div className="deck-card-view" key={cards[0].id}>
+          // TODO: Fix refactor inline function
+          <div
+            className="deck-card-view"
+            key={cards[0].id}
+            onClick={() => this.props.removeCardFromDeck(cardName)}
+          >
             <span>{cards[0].name}</span>
             <span>{cards.length}</span>
           </div>
@@ -76,6 +81,7 @@ class DeckSideView extends React.Component {
 DeckSideView.propTypes = {
   cards: PropTypes.object.isRequired,
   deckName: PropTypes.string,
+  removeCardFromDeck: PropTypes.func.isRequired,
 };
 
 export default DeckSideView;

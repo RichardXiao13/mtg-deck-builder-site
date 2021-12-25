@@ -10,7 +10,7 @@ const decksRouter = require("./api/decks");
 const PORT = process.env.PORT || 4000;
 
 const app = express();
-app.use(bodyParser.json({limit: "1mb"}));
+app.use(bodyParser.json({ limit: "1mb" }));
 app.use(cors());
 app.use(morgan("dev"));
 

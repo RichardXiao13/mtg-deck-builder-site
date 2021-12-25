@@ -8,7 +8,7 @@ const decksRouter = express.Router();
 decksRouter.post("/", (req, res, next) => {
   const err = utils.isValidDeck(req.body.cards);
   if (err) {
-    res.status(400).send({message: err.message});
+    res.status(400).send({ message: err.message });
   } else {
     next();
   }
@@ -16,7 +16,7 @@ decksRouter.post("/", (req, res, next) => {
 
 decksRouter.get("/", (req, res, next) => {
   // TODO
-//   res.send("Working");
+  //   res.send("Working");
 });
 
 decksRouter.post("/", (req, res, next) => {
@@ -24,13 +24,20 @@ decksRouter.post("/", (req, res, next) => {
   if (!name) {
     name = "Deck";
   }
-  fs.writeFile(`./database/decks/${name}.json`, "utf8", req.body.cards, (err) => {
+  fs.writeFile(
+    `./database/decks/${name}.json`,
+    JSON.stringify(req.body.cards),
+    {
+      encoding: "utf8",
+    },
+    (err) => {
       if (err) {
         next(err);
       } else {
         res.status(204).send();
       }
-  });
+    }
+  );
 });
 
 module.exports = decksRouter;

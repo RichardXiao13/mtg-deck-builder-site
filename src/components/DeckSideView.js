@@ -12,15 +12,18 @@ class DeckSideView extends React.Component {
 
   async handleCreateDeck() {
     let response = await fetch("/decks", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({cards: this.props.cards, name: this.props.deckName})
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        cards: this.props.cards,
+        name: this.props.deckName,
+      }),
     });
     if (response.status === 400) {
-        response = await response.json();
-        console.log(response.message);
+      response = await response.json();
+      console.log(response.message);
     }
   }
 
@@ -72,7 +75,7 @@ class DeckSideView extends React.Component {
 
 DeckSideView.propTypes = {
   cards: PropTypes.object.isRequired,
-  deckName: PropTypes.string
+  deckName: PropTypes.string,
 };
 
 export default DeckSideView;

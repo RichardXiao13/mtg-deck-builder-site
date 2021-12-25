@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
     this.updateSearchName = this.updateSearchName.bind(this);
     this.updateSearchType = this.updateSearchType.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
   }
 
   updateSearchName(event) {
@@ -30,17 +31,26 @@ class SearchBar extends React.Component {
     this.props.updateCards(cards);
   }
 
+  handleEnter(event) {
+    if (event.keyCode === 13) {
+      this.handleSearch();
+      event.target.blur();
+    }
+  }
+
   render() {
     return (
       <div className="search-bar">
         <input
           placeholder="Name..."
           onChange={(e) => this.updateSearchName(e)}
+          onKeyUp={this.handleEnter}
           value={this.state.searchName}
         />
         <input
           placeholder="Type..."
           onChange={(e) => this.updateSearchType(e)}
+          onKeyUp={this.handleEnter}
           value={this.state.searchType}
         />
         <button onClick={this.handleSearch}>Search</button>

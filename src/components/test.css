@@ -62,3 +62,14 @@
   margin: 0 10px;
   background-color: #f5f5f5;
 }
+
+.dropdown {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.color-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

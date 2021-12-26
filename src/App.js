@@ -4,6 +4,7 @@ import "./App.css";
 import SearchBar from "./components/SearchBar";
 import CardList from "./components/CardList";
 import DeckSideView from "./components/DeckSideView";
+import { searchCards } from "./utils/Search";
 
 class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,14 @@ class App extends React.Component {
     this.updateCards = this.updateCards.bind(this);
     this.addCardToDeck = this.addCardToDeck.bind(this);
     this.removeCardFromDeck = this.removeCardFromDeck.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.state.cards.length === 0) {
+      searchCards().then((cards) => {
+        this.setState({ cards: cards });
+      });
+    }
   }
 
   updateCards(newCards) {

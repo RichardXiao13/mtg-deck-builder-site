@@ -1,6 +1,7 @@
 /* eslint-disable require-jsdoc */
 import React from "react";
 import PropTypes from "prop-types";
+import "./test.css";
 
 class DeckSideView extends React.Component {
   constructor(props) {
@@ -50,28 +51,18 @@ class DeckSideView extends React.Component {
 
   render() {
     return (
-      <div
-        style={{
-          border: "10px solid black",
-          flex: "0 0 250px",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <h3
-          style={{
-            borderBottom: "10px solid black",
-            margin: 0,
-            padding: "10px",
-          }}
-        >
-          Deck
-        </h3>
+      <div className="deck-side-container">
+        <div className="deck-side-view">
+          <div
+            style={{
+              borderBottom: "1px solid black",
+            }}
+          >
+            <h3>Deck</h3>
+            <button onClick={this.handleCreateDeck}>Create Deck</button>
+          </div>
 
-        <button onClick={this.handleCreateDeck}>Create Deck</button>
-
-        <div style={{ overflowY: "auto", height: "100%" }}>
-          {this.renderSideView()}
+          <div className="deck-side-content">{this.renderSideView()}</div>
         </div>
       </div>
     );

@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import CardView from "./CardView";
+import "./test.css";
 
 class CardList extends React.Component {
   constructor(props) {
@@ -22,15 +23,7 @@ class CardList extends React.Component {
 
   render() {
     return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flex: "1 1 auto",
-          border: "10px solid black",
-          overflowX: "auto",
-        }}
-      >
+      <div className="card-list-container">
         <div
           style={{
             display: "flex",

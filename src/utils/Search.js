@@ -14,7 +14,7 @@ function filterUniqueCards(cards) {
   return filteredCards;
 }
 
-export async function searchCardsWithName(name, type, colors) {
+export async function searchCards(name = "", type = "", colors = new Set()) {
   const searchColors = Array.from(colors).join("|");
   const query = `${url}/cards?name=${name}&type=${type}&colors=${searchColors}`;
   console.log(query);

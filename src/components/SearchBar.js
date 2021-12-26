@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 import React from "react";
 import PropTypes from "prop-types";
-import { searchCardsWithName } from "../utils/Search";
+import { searchCards } from "../utils/Search";
 import SearchDropDown from "./SearchDropDown";
 import "./test.css";
 
@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
   }
 
   async handleSearch() {
-    const cards = await searchCardsWithName(
+    const cards = await searchCards(
       this.state.searchName,
       this.state.searchType,
       this.state.searchColors

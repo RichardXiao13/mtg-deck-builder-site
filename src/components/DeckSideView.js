@@ -39,6 +39,7 @@ class DeckSideView extends React.Component {
             key={cards[0].id}
             card={cards[0]}
             numCards={cards.length}
+            // TODO: Fix refactor inline function
             onClick={() => this.props.removeCardFromDeck(cards[0].name)}
           />
         );

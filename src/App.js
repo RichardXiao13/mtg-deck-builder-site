@@ -54,7 +54,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <SearchBar updateCards={this.updateCards} />
-        <div style={{ display: "flex", height: "100%" }}>
+        <div style={{ display: "flex", height: "100%", marginTop: "72px" }}>
           <DeckSideView
             cards={this.state.cardsInDeck}
             removeCardFromDeck={this.removeCardFromDeck}

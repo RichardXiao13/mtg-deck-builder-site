@@ -9,7 +9,6 @@ class CardSideView extends React.Component {
 
   render() {
     return (
-      // TODO: Fix refactor inline function
       <div className="deck-card-view" onClick={this.props.onClick}>
         <span>{this.props.card.name}</span>
         <span>{this.props.numCards}</span>

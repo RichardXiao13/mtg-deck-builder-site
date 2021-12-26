@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 import React from "react";
 import PropTypes from "prop-types";
-import { Button } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 import { searchCards } from "../utils/Search";
 import SearchDropDown from "./SearchDropDown";
 import "./styles.css";
@@ -56,23 +56,36 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className="search-bar">
-        <input
-          placeholder="Name..."
+        <TextField
+          id="filled-basic"
+          label="Name..."
+          variant="filled"
           onChange={this.updateSearchName}
           onKeyUp={this.handleEnter}
           value={this.state.searchName}
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
+            marginLeft: "24px",
+          }}
         />
 
-        <input
-          placeholder="Type..."
+        <TextField
+          id="filled-basic"
+          label="Type..."
+          variant="filled"
           onChange={this.updateSearchType}
           onKeyUp={this.handleEnter}
           value={this.state.searchType}
+          style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
         />
 
         <SearchDropDown updateSearchColors={this.updateSearchColors} />
 
-        <Button variant="contained" onClick={this.handleSearch}>
+        <Button
+          variant="contained"
+          onClick={this.handleSearch}
+          style={{ marginRight: "24px" }}
+        >
           Search
         </Button>
       </div>

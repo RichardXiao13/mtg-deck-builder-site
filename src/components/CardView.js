@@ -18,11 +18,12 @@ class CardView extends React.Component {
   render() {
     return (
       <div className="card-view">
-        <img
-          src={this.props.card.imageUrl}
-          style={{ height: "370px", width: "265px", marginBottom: "25px" }}
-        />
-        <Button variant="contained" onClick={this.handleQuickAdd}>
+        <img src={this.props.card.imageUrl} className="card-view-img" />
+        <Button
+          variant="contained"
+          onClick={this.handleQuickAdd}
+          style={{ borderRadius: 0 }}
+        >
           Quick Add
         </Button>
       </div>

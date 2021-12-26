@@ -84,7 +84,11 @@ class DeckSideView extends React.Component {
               />
             </div>
 
-            <Button onClick={this.handleCreateDeck} variant="contained">
+            <Button
+              onClick={this.handleCreateDeck}
+              variant="contained"
+              style={{ borderRadius: 0 }}
+            >
               Create Deck
             </Button>
           </div>

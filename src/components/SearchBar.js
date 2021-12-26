@@ -84,7 +84,7 @@ class SearchBar extends React.Component {
         <Button
           variant="contained"
           onClick={this.handleSearch}
-          style={{ marginRight: "24px" }}
+          style={{ marginRight: "24px", borderRadius: 0 }}
         >
           Search
         </Button>

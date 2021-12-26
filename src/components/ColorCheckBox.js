@@ -1,25 +1,27 @@
 /* eslint-disable require-jsdoc */
 import React from "react";
 import PropTypes from "prop-types";
-import "./test.css";
+import { Checkbox, FormControlLabel } from "@material-ui/core";
+import "./styles.css";
 
 class ColorCheckBox extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
   }
 
-  handleClick() {
+  handleOnChange() {
     this.props.updateSearchColors(this.props.color);
   }
 
   render() {
     return (
-      <div className="color-filter">
-        <input type="checkbox" onClick={this.handleClick} />
-        <span>{this.props.color}</span>
-      </div>
+      <FormControlLabel
+        control={<Checkbox style={{ color: "white" }} />}
+        label={this.props.color}
+        onChange={this.handleOnChange}
+      />
     );
   }
 }

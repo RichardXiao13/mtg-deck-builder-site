@@ -1,9 +1,10 @@
 /* eslint-disable require-jsdoc */
 import React from "react";
 import PropTypes from "prop-types";
+import { Button } from "@material-ui/core";
 import { searchCards } from "../utils/Search";
 import SearchDropDown from "./SearchDropDown";
-import "./test.css";
+import "./styles.css";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -71,7 +72,9 @@ class SearchBar extends React.Component {
 
         <SearchDropDown updateSearchColors={this.updateSearchColors} />
 
-        <button onClick={this.handleSearch}>Search</button>
+        <Button variant="contained" onClick={this.handleSearch}>
+          Search
+        </Button>
       </div>
     );
   }

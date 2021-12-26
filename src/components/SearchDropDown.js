@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ColorCheckBox from "./ColorCheckBox";
-import "./test.css";
+import "./styles.css";
 
 class SearchDropDown extends React.Component {
   constructor(props) {

@@ -1,7 +1,8 @@
 /* eslint-disable require-jsdoc */
 import React from "react";
 import PropTypes from "prop-types";
-import "./test.css";
+import { Button } from "@material-ui/core";
+import "./styles.css";
 
 class CardView extends React.Component {
   constructor(props) {
@@ -21,9 +22,9 @@ class CardView extends React.Component {
           src={this.props.card.imageUrl}
           style={{ height: "370px", width: "265px", marginBottom: "25px" }}
         />
-        <button className="card-button" onClick={this.handleQuickAdd}>
+        <Button variant="contained" onClick={this.handleQuickAdd}>
           Quick Add
-        </button>
+        </Button>
       </div>
     );
   }

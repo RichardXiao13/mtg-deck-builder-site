@@ -1,7 +1,8 @@
 /* eslint-disable require-jsdoc */
 import React from "react";
 import PropTypes from "prop-types";
-import "./test.css";
+import CardSideView from "./CardSideView";
+import "./styles.css";
 
 class DeckSideView extends React.Component {
   constructor(props) {
@@ -34,15 +35,12 @@ class DeckSideView extends React.Component {
       if (Object.prototype.hasOwnProperty.call(this.props.cards, cardName)) {
         const cards = this.props.cards[cardName];
         view.push(
-          // TODO: Fix refactor inline function
-          <div
-            className="deck-card-view"
+          <CardSideView
             key={cards[0].id}
-            onClick={() => this.props.removeCardFromDeck(cardName)}
-          >
-            <span>{cards[0].name}</span>
-            <span>{cards.length}</span>
-          </div>
+            card={cards[0]}
+            numCards={cards.length}
+            onClick={() => this.props.removeCardFromDeck(cards[0].name)}
+          />
         );
       }
     }
@@ -55,7 +53,7 @@ class DeckSideView extends React.Component {
         <div className="deck-side-view">
           <div
             style={{
-              borderBottom: "1px solid black",
+              borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
             }}
           >
             <h3>Deck</h3>

@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import CardView from "./CardView";
-import "./test.css";
+import "./styles.css";
 
 class CardList extends React.Component {
   constructor(props) {

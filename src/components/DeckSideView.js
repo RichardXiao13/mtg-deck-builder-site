@@ -1,15 +1,20 @@
 /* eslint-disable require-jsdoc */
 import React from "react";
 import PropTypes from "prop-types";
+import { Button, TextField } from "@material-ui/core";
+import EditIcon from "@mui/icons-material/Edit";
 import CardSideView from "./CardSideView";
 import "./styles.css";
 
 class DeckSideView extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { deckName: "" };
 
     this.renderSideView = this.renderSideView.bind(this);
     this.handleCreateDeck = this.handleCreateDeck.bind(this);
+    this.updateDeckName = this.updateDeckName.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
   }
 
   async handleCreateDeck() {
@@ -20,12 +25,22 @@ class DeckSideView extends React.Component {
       },
       body: JSON.stringify({
         cards: this.props.cards,
-        name: this.props.deckName,
+        name: this.state.deckName,
       }),
     });
     if (response.status === 400) {
       response = await response.json();
       console.log(response.message);
+    }
+  }
+
+  updateDeckName(event) {
+    this.setState({ deckName: event.target.value });
+  }
+
+  handleEnter(event) {
+    if (event.keyCode === 13) {
+      event.target.blur();
     }
   }
 
@@ -55,10 +70,23 @@ class DeckSideView extends React.Component {
           <div
             style={{
               borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            <h3>Deck</h3>
-            <button onClick={this.handleCreateDeck}>Create Deck</button>
+            <div style={{ display: "flex", alignItems: "flex-end" }}>
+              <EditIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+              <TextField
+                label="Deck Name"
+                variant="standard"
+                onChange={this.updateDeckName}
+                onKeyUp={this.handleEnter}
+              />
+            </div>
+
+            <Button onClick={this.handleCreateDeck} variant="contained">
+              Create Deck
+            </Button>
           </div>
 
           <div className="deck-side-content">{this.renderSideView()}</div>
@@ -70,7 +98,6 @@ class DeckSideView extends React.Component {
 
 DeckSideView.propTypes = {
   cards: PropTypes.object.isRequired,
-  deckName: PropTypes.string,
   removeCardFromDeck: PropTypes.func.isRequired,
 };
 

@@ -6,6 +6,7 @@ const morgan = require("morgan");
 
 // Import routers from ./api here
 const decksRouter = require("./api/decks");
+const usersRouter = require("./api/users");
 
 const PORT = process.env.PORT || 4000;
 
@@ -16,6 +17,7 @@ app.use(morgan("dev"));
 
 // Mount routers here
 app.use("/decks", decksRouter);
+app.use("/users", usersRouter);
 
 app.use(errorhandler());
 

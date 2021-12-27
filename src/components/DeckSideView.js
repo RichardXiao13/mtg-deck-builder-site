@@ -24,8 +24,7 @@ class DeckSideView extends React.Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        cards: this.props.cards,
-        name: this.state.deckName,
+        deck: { cards: this.props.cards, name: this.state.deckName },
       }),
     });
     if (response.status === 400) {

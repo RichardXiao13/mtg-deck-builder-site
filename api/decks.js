@@ -6,7 +6,7 @@ const utils = require("./utils");
 const decksRouter = express.Router();
 
 decksRouter.post("/", (req, res, next) => {
-  const err = utils.isValidDeck(req.body.cards);
+  const err = utils.isValidDeck(req.body.deck.cards);
   if (err) {
     res.status(400).send({ message: err.message });
   } else {
@@ -20,13 +20,13 @@ decksRouter.get("/", (req, res, next) => {
 });
 
 decksRouter.post("/", (req, res, next) => {
-  let name = req.body.name;
+  let name = req.body.deck.name;
   if (!name) {
     name = "Deck";
   }
   fs.writeFile(
     `./database/decks/${name}.json`,
-    JSON.stringify(req.body.cards),
+    JSON.stringify(req.body.deck.cards),
     {
       encoding: "utf8",
     },
@@ -34,7 +34,7 @@ decksRouter.post("/", (req, res, next) => {
       if (err) {
         next(err);
       } else {
-        res.status(204).send();
+        res.status(201).send();
       }
     }
   );

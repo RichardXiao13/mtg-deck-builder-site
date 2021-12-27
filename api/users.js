@@ -1,6 +1,7 @@
 /* eslint-disable no-invalid-this */
 const express = require("express");
 const sqlite3 = require("sqlite3");
+const bcrypt = require("bcrypt-nodejs");
 const db = new sqlite3.Database("./database/decks.sqlite");
 
 // eslint-disable-next-line new-cap
@@ -23,8 +24,11 @@ usersRouter.get("/:userId", (req, res, next) => {
   res.send({ user: req.user });
 });
 
-usersRouter.post("/", (req, res, next) => {
-  const { username, password } = req.body.user;
+usersRouter.post("/", async (req, res, next) => {
+  let { username, password } = req.body.user;
+
+  const salt = await bcrypt.genSalt(10);
+  password = await bcrypt.hash(password, salt);
 
   if (!username || !password) {
     res.status(400).send("Missing username or password.");
@@ -53,8 +57,11 @@ usersRouter.post("/", (req, res, next) => {
   );
 });
 
-usersRouter.put("/:userId", (req, res, next) => {
-  const { username, password } = req.body.user;
+usersRouter.put("/:userId", async (req, res, next) => {
+  let { username, password } = req.body.user;
+
+  const salt = await bcrypt.genSalt(10);
+  password = await bcrypt.hash(password, salt);
 
   if (!username || !password) {
     res.status(400).send("Missing username or password.");

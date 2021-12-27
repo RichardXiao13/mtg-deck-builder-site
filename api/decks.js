@@ -6,7 +6,7 @@ const utils = require("./utils");
 const decksRouter = express.Router();
 
 decksRouter.post("/", (req, res, next) => {
-  const err = utils.isValidDeck(req.body.deck.cards);
+  const err = utils.validateDeck(req.body.deck.cards);
   if (err) {
     res.status(400).send({ message: err.message });
   } else {

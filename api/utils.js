@@ -1,4 +1,4 @@
-const isValidDeck = (cards) => {
+const validateDeck = (cards) => {
   let numCards = 0;
   let err = null;
   for (const cardName in cards) {
@@ -15,5 +15,5 @@ const isValidDeck = (cards) => {
 };
 
 module.exports = {
-  isValidDeck,
+  validateDeck,
 };

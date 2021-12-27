@@ -8,20 +8,20 @@
 
 ## TODO
 
-- Create decklist from added cards [DONE]
+- [DONE] Create decklist from added cards
 
-- Create advanced search with card type, mana colors, card set using MTG API [IN PROGRESS]
+- [IN PROGRESS] Create advanced search with card type, mana colors, card set using MTG API
 
-- Create frontend for user login [IN PROGRESS]
+- [IN PROGRESS] Create frontend for user login
 
-- Create frontend for user sign up [IN PROGRESS]
+- [IN PROGRESS] Create frontend for user sign up
 
-- Creat frontend for deck building functionality [IN PROGESS]
+-  [IN PROGRESS]Creat frontend for deck building functionalit
 
-- Create backend for user login [DONE]
+- [DONE] Create backend for user login
 
-- Create backend for user sign up [IN PROGRESS]
+- [IN PROGRESS] Create backend for user sign up
 
-- Create backend for decks [IN PROGRESS]
+- [IN PROGRESS] Create backend for decks
 
-- Prototype database schema with SQLite [DONE]
+- [DONE] Prototype database schema with SQLite

@@ -28,32 +28,34 @@ usersRouter.post("/", (req, res, next) => {
   const { username, password } = req.body.user;
 
   if (!username || !password) {
-    res.status(400).send("Missing username or password.");
+    res.status(400).send({ message: "Missing username or password." });
   }
 
   const saltRounds = 10;
-  bcrypt.hash(password, saltRounds, (err, hash) => {
-    db.run(
-      "INSERT INTO Users (username, password) VALUES ($username, $password)",
-      { $username: username, $password: hash },
-      function (err) {
-        if (err) {
-          next(err);
-        } else {
-          db.get(
-            "SELECT * FROM Users WHERE id=$id",
-            { $id: this.lastID },
-            (err, user) => {
-              if (err) {
-                next(err);
-              } else {
-                res.status(201).send({ user: user });
+  bcrypt.genSalt(saltRounds, (err, salt) => {
+    bcrypt.hash(password, salt, null, (err, hash) => {
+      db.run(
+        "INSERT INTO Users (username, password) VALUES ($username, $password)",
+        { $username: username, $password: hash },
+        function (err) {
+          if (err) {
+            next(err);
+          } else {
+            db.get(
+              "SELECT * FROM Users WHERE id=$id",
+              { $id: this.lastID },
+              (err, user) => {
+                if (err) {
+                  next(err);
+                } else {
+                  res.status(201).send({ user: user });
+                }
               }
-            }
-          );
+            );
+          }
         }
-      }
-    );
+      );
+    });
   });
 });
 
@@ -61,11 +63,11 @@ usersRouter.put("/:userId", async (req, res, next) => {
   const { username, password } = req.body.user;
 
   if (!username || !password) {
-    res.status(400).send("Missing username or password.");
+    res.status(400).send({ message: "Missing username or password." });
   }
 
   const saltRounds = 10;
-  bcrypt.hash(password, saltRounds, (err, hash) => {
+  bcrypt.hash(password, saltRounds, null, (err, hash) => {
     db.run(
       "UPDATE Users SET username=$username, password=$password WHERE id=$id",
       { $username: username, $password: hash, $id: req.params.userId },

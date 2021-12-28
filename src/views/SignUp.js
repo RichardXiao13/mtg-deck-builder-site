@@ -3,20 +3,20 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
 
-class Login extends React.Component {
+class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
       password: "",
-      isLoggedIn: false,
-      needAcct: false,
+      isSignedUp: false,
+      needLogin: false,
     };
 
     this.updateUsername = this.updateUsername.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
-    this.redirectToSignUp = this.redirectToSignUp.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
+    this.redirectToLogin = this.redirectToLogin.bind(this);
   }
 
   updateUsername(event) {
@@ -27,8 +27,8 @@ class Login extends React.Component {
     this.setState({ password: event.target.value });
   }
 
-  async handleLogin() {
-    let response = await fetch("/login", {
+  async handleSignUp() {
+    let response = await fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,19 +39,19 @@ class Login extends React.Component {
       response = await response.json();
       console.log(response);
     } else {
-      this.setState({ isLoggedIn: true });
+      this.setState({ isSignedUp: true });
     }
   }
 
-  redirectToSignUp() {
-    this.setState({ needAcct: true });
+  redirectToLogin() {
+    this.setState({ needLogin: true });
   }
 
   render() {
-    if (this.state.isLoggedIn) {
+    if (this.state.isSignedUp) {
       return <Navigate to="/home" />;
-    } else if (this.state.needAcct) {
-      return <Navigate to="/signup" />;
+    } else if (this.state.needLogin) {
+      return <Navigate to="/login" />;
     }
 
     return (
@@ -63,22 +63,22 @@ class Login extends React.Component {
           onChange={this.updatePassword}
         />
         <Button
-          onClick={this.handleLogin}
+          onClick={this.handleSignUp}
           variant="contained"
           style={{ borderRadius: 0 }}
         >
-          Login
+          Sign Up
         </Button>
         <Button
-          onClick={this.redirectToSignUp}
+          onClick={this.redirectToLogin}
           variant="contained"
           style={{ borderRadius: 0 }}
         >
-          Need an account? Sign up here.
+          Have an account? Login here.
         </Button>
       </div>
     );
   }
 }
 
-export default Login;
+export default SignUp;

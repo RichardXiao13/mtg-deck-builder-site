@@ -16,7 +16,7 @@
 
 - [IN PROGRESS] Create frontend for user sign up
 
--  [IN PROGRESS]Creat frontend for deck building functionalit
+- [IN PROGRESS]Creat frontend for deck building functionalit
 
 - [DONE] Create backend for user login
 

@@ -59,7 +59,7 @@ usersRouter.post("/", (req, res, next) => {
   });
 });
 
-usersRouter.put("/:userId", async (req, res, next) => {
+usersRouter.put("/:userId", (req, res, next) => {
   const { username, password } = req.body.user;
 
   if (!username || !password) {

@@ -27,7 +27,7 @@ class CardView extends React.Component {
   }
 
   componentDidMount() {
-    this.handleGetPrice();
+    // this.handleGetPrice();
   }
 
   render() {

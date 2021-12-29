@@ -14,6 +14,9 @@
 # database storage
 /database/decks
 
+# api keys
+/api/ApiKeys.js
+
 # misc
 .DS_Store
 .env.local

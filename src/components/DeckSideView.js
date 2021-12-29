@@ -6,6 +6,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import CardSideView from "./CardSideView";
 import "./styles.css";
 
+import { createDeck } from "../utils/CreateDeck";
+
 class DeckSideView extends React.Component {
   constructor(props) {
     super(props);
@@ -18,15 +20,7 @@ class DeckSideView extends React.Component {
   }
 
   async handleCreateDeck() {
-    let response = await fetch("/decks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        deck: { cards: this.props.cards, name: this.state.deckName },
-      }),
-    });
+    let response = await createDeck(this.props.cards, this.state.deckName);
     if (response.status === 400) {
       response = await response.json();
       console.log(response.message);

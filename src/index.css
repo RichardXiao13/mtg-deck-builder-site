@@ -14,3 +14,12 @@ html {
 #root {
   height: 100%;
 }
+
+a {
+  color: #66b2ff;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

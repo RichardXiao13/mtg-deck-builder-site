@@ -55,27 +55,30 @@ class SignUp extends React.Component {
     }
 
     return (
-      <div>
-        <input placeholder="username" onChange={this.updateUsername} />
-        <input
-          type="password"
-          placeholder="password"
-          onChange={this.updatePassword}
-        />
-        <Button
-          onClick={this.handleSignUp}
-          variant="contained"
-          style={{ borderRadius: 0 }}
-        >
-          Sign Up
-        </Button>
-        <Button
-          onClick={this.redirectToLogin}
-          variant="contained"
-          style={{ borderRadius: 0 }}
-        >
-          Have an account? Login here.
-        </Button>
+      <div className="SignUp">
+        <div className="signup-container">
+          <div className="signup-content">
+            <input
+              className="auth-input"
+              placeholder="username"
+              onChange={this.updateUsername}
+            />
+            <input
+              className="auth-input"
+              type="password"
+              placeholder="password"
+              onChange={this.updatePassword}
+            />
+            <Button
+              onClick={this.handleSignUp}
+              variant="contained"
+              style={{ borderRadius: 0 }}
+            >
+              Sign Up
+            </Button>
+            <a onClick={this.redirectToLogin}>Have an account? Login here.</a>
+          </div>
+        </div>
       </div>
     );
   }

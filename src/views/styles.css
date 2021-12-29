@@ -5,3 +5,62 @@
   flex-direction: column;
   background-color: white;
 }
+
+.CreateDeck {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+.Decks {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.Login,
+.SignUp {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #212121;
+}
+
+.login-container,
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  min-height: 400px;
+  width: 400px;
+  background-color: white;
+}
+
+.login-content,
+.signup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 75%;
+}
+
+.auth-input {
+  padding: 12px 20px;
+  box-sizing: border-box;
+  outline: none;
+  margin: 1px;
+  font-size: 1em;
+}
+
+.auth-input:focus {
+  margin: 0;
+  border: 3px solid #555;
+}

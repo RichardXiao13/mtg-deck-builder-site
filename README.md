@@ -12,11 +12,13 @@
 
 - [IN PROGRESS] Create advanced search with card type, mana colors, card set using MTG API
 
+- [IN PROGRESS] Create card similarity algorithm
+
 - [IN PROGRESS] Create frontend for user login
 
 - [IN PROGRESS] Create frontend for user sign up
 
-- [IN PROGRESS]Creat frontend for deck building functionalit
+- [IN PROGRESS] Create frontend for deck building functionality
 
 - [DONE] Create backend for user login
 

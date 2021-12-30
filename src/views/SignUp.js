@@ -7,16 +7,22 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      email: "",
       username: "",
       password: "",
       isSignedUp: false,
       needLogin: false,
     };
 
+    this.updateEmail = this.updateEmail.bind(this);
     this.updateUsername = this.updateUsername.bind(this);
     this.updatePassword = this.updatePassword.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
     this.redirectToLogin = this.redirectToLogin.bind(this);
+  }
+
+  updateEmail(event) {
+    this.setState({ email: event.target.value });
   }
 
   updateUsername(event) {
@@ -57,7 +63,13 @@ class SignUp extends React.Component {
     return (
       <div className="SignUp">
         <div className="signup-container">
-          <div className="signup-content">
+          <form className="signup-content">
+            <input
+              className="auth-input"
+              type="email"
+              placeholder="email"
+              onChange={this.updateEmail}
+            />
             <input
               className="auth-input"
               placeholder="username"
@@ -77,7 +89,7 @@ class SignUp extends React.Component {
               Sign Up
             </Button>
             <a onClick={this.redirectToLogin}>Have an account? Login here.</a>
-          </div>
+          </form>
         </div>
       </div>
     );

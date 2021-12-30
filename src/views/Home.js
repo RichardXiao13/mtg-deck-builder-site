@@ -21,8 +21,21 @@ class Home extends React.Component {
     }
     return (
       <div className="Home">
-        <p>test</p>
-        <button onClick={this.handleGoToDecks}>Decks</button>
+        <div className="nav">
+          <ul className="nav-link-container">
+            <li className="nav-link-content">
+              <a className="nav-link" onClick={this.handleGoToDecks}>
+                Decks
+                <span className="nav-indicator"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="home-content">
+          <div className="side-content"></div>
+          <div className="main-content"></div>
+          <div className="side-content"></div>
+        </div>
       </div>
     );
   }

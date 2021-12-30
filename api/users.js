@@ -25,18 +25,18 @@ usersRouter.get("/:userId", (req, res, next) => {
 });
 
 usersRouter.post("/", (req, res, next) => {
-  const { username, password } = req.body.user;
+  const { email, username, password } = req.body.user;
 
-  if (!username || !password) {
-    res.status(400).send({ message: "Missing username or password." });
+  if (!email || !username || !password) {
+    res.status(400).send({ message: "Missing email, username, or password." });
   }
 
   const saltRounds = 10;
   bcrypt.genSalt(saltRounds, (err, salt) => {
     bcrypt.hash(password, salt, null, (err, hash) => {
       db.run(
-        "INSERT INTO Users (username, password) VALUES ($username, $password)",
-        { $username: username, $password: hash },
+        "INSERT INTO Users (email, username, password) VALUES ($email, $username, $password)",
+        { $email: email, $username: username, $password: hash },
         function (err) {
           if (err) {
             next(err);

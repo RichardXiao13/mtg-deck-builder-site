@@ -4,6 +4,7 @@ const db = new sqlite3.Database("./database/decks.sqlite");
 db.run(
   "CREATE TABLE IF NOT EXISTS Users (" +
     "id INTEGER PRIMARY KEY, " +
+    "email TEXT NOT NULL, " +
     "username TEXT NOT NULL, " +
     "password TEXT NOT NULL" +
     ")"

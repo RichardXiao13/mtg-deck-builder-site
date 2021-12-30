@@ -57,7 +57,7 @@ class Login extends React.Component {
     return (
       <div className="Login">
         <div className="login-container">
-          <div className="login-content">
+          <form className="login-content">
             <input
               className="auth-input"
               placeholder="username"
@@ -79,7 +79,7 @@ class Login extends React.Component {
             <a onClick={this.redirectToSignUp}>
               Need an account? Sign up here.
             </a>
-          </div>
+          </form>
         </div>
       </div>
     );

@@ -3,7 +3,74 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #212121;
+}
+
+.nav {
+  position: fixed;
+  height: 72px;
+  width: 100%;
+  color: white;
+  background-color: #212121;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
+  z-index: 1;
+}
+
+.nav-link-container {
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link-container:hover {
+  opacity: 0.8;
+}
+
+.nav-link-content {
+  text-align: center;
+  display: inline-block;
+}
+
+.nav-link {
+  padding: 0 16px;
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  line-height: 72px;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+}
+
+.nav-indicator {
+  position: absolute;
+  height: 4px;
   background-color: white;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+}
+
+.home-content {
+  height: 100%;
+  display: flex;
+}
+
+.side-content {
+  width: 280px;
+  height: 100%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+}
+
+.main-content {
+  width: calc(100% - 2 * 280px);
+  height: 100%;
+  background-color: #212121;
 }
 
 .CreateDeck {

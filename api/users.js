@@ -15,7 +15,7 @@ usersRouter.param("userId", (req, res, next, id) => {
       req.user = user;
       next();
     } else {
-      res.status(404).send();
+      res.status(404).send({ message: "User not found." });
     }
   });
 });

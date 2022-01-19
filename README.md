@@ -10,9 +10,9 @@
 
 - [DONE] Create decklist from added cards
 
-- [IN PROGRESS] Create advanced search with card type, mana colors, and name using MTG API
+- [DONE] Create advanced search with card type, mana colors, and name using MTG API
 
-- [IN PROGRESS] Create card similarity algorithm
+- [DONE] Create card similarity algorithm
 
 - [DONE] Create frontend for user login
 
@@ -24,6 +24,6 @@
 
 - [DONE] Create backend for user sign up
 
-- [IN PROGRESS] Create backend for decks
+- [DONE] Create backend for decks
 
 - [DONE] Prototype database schema with SQLite
